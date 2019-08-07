@@ -1,0 +1,27 @@
+
+#spring.application.name：服务名称
+#server.port：服务端口号
+#eureka.client.service-url.defaultZone：Eureka默认的服务地址空间信息配置
+#eureka.client.fetch-registry：是否从其他Eureka注册中心同步服务列表（单节点无需配置启用）.
+#eureka.client.register-with-eureka：是否将自己作为服务注册到其他Eureka服务注册中心（单节点无需配置启用）
+
+# 服务名称
+spring:
+  application:
+    name: spring-cloud-eureka
+# 服务端口号
+server:
+  port: 10850
+
+#Eureka 相关配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+    # 是否从其他的服务中心同步服务列表
+    fetch-registry: false
+    # 是否把自己作为服务注册到其他服务注册中心
+    register-with-eureka: false
+    #使用主机IP定义注册中心的地址 默认为false 主机名
+  instance:
+    prefer-ip-address: true
